@@ -15,26 +15,70 @@
   </head>
   <body>
     <!-- start header  -->
-    <header>
-      <nav class="header-website">
+    <header class="header-website">
+      <nav class="navbar">
         <!-- <img/icone>  -->
-        <ul>
-          <li>¨Présentation</li>
-          <li>Compétences</li>
-          <li>Expériences de travail</li>
-          <li>Réalisations</li>
-          <li>Contactez-moi</li>
-        </ul>
+        <div class="logo">logo</div>
+        <div class="menu">
+          <label class="btn btn-secondary menu-input-label" for="menu-toggle"
+            ><i class="fa-solid fa-bars"></i
+          ></label>
+          <input
+            type="checkbox"
+            id="menu-toggle"
+            class="menu-input"
+            title="Toggle Menu"
+          />
+          <div class="dropdown-menu">
+            <ul class="nav-links">
+              <li class="nav-link"><a href="#presentation">Présentation</a></li>
+              <li class="nav-link"><a href="#competences">Compétences</a></li>
+              <li class="nav-link"><a href="#experiences">Expériences</a></li>
+              <li class="nav-link"><a href="#projets">Projets</a></li>
+              <li class="nav-link"><a href="#contact">Contactez-moi</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
     <main>
       <!-- Premiere section  -->
-      <section class="section-display left-text-content">
+      <section class="section-display left-text-content" id="presentation">
         <article class="text-content">
-          <h1>Bonjour à tous ,je m'apelle Marina</h1>
-          <p>
+          <h1 class="title">
+            Bonjour à tous ,je m'apelle Marina
+            <picture class="emoji-gif">
+              <source
+                srcset="
+                  https://fonts.gstatic.com/s/e/notoemoji/latest/26a1/512.webp
+                "
+                type="image/webp"
+              />
+              <img
+                src="https://fonts.gstatic.com/s/e/notoemoji/latest/26a1/512.gif"
+                alt="⚡"
+              />
+            </picture>
+          </h1>
+          <p class="paragraphe">
             Développeuse passionné ayant une éxperience du développent full
-            stack option Gaming
+            stack
+            <span class="animate-fusee">
+              <picture class="emoji-gif">
+                <source
+                  srcset="
+                    https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif"
+                  alt="🚀"
+                /> </picture
+            ></span>
+            et des notions Gaming,j'ai une expérience en construction de site
+            web et mobile avec Javascript/Nodejs et beaucoup d'autre librairies
+            et framework
           </p>
           <div class="socials">
             <button class="btn btn-primary">Contactez-moi</button>
@@ -50,7 +94,7 @@
           <img src="" alt="image gif personnage devant un bureau" />
         </div>
       </section>
-      <section class="section-display right-text-content">
+      <section class="section-display right-text-content" id="competences">
         <article class="text-content">
           <h2 class="title">Mes compétences</h2>
           <p class="paragraph">Voici les compétences que je maîtrise :</p>
