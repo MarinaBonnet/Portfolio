@@ -44,3 +44,11 @@
       transform: scale(10);
     }
   }
+  @keyframes showGrowth {
+    from{
+      padding-right: 0px;
+    }
+    to{
+      padding-right: 1%;
+    }
+}
