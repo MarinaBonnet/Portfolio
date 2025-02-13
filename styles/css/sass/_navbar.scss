@@ -7,7 +7,7 @@
         @include justify-between;
         padding-top: 20px;
         padding-bottom: 10px;
-        
+
         .menu{
             .menu-input{
                 display: none;
@@ -37,8 +37,7 @@
                         display: block;
                         padding: 10px;
                         a{
-                            text-decoration: none;
-                            color: $white;
+                           @include link-as-text
                         }
                 
                     }

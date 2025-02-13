@@ -4,3 +4,7 @@
     align-items: center;
   }
   
+  @mixin link-as-text($color: $white){
+    text-decoration: none;
+    color: $color;
+  } 
