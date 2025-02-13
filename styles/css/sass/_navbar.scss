@@ -37,7 +37,7 @@
                         display: block;
                         padding: 10px;
                         a{
-                           @include link-as-text
+                           @include link-as-text;
                         }
                 
                     }

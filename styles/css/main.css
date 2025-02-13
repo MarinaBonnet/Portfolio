@@ -29,6 +29,12 @@ picture.emoji-gif img{
   width: 1em;
   height: 1em;
 }
+#goToTop {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 500;
+}
 
 .section-display {
   display: flex;
@@ -103,10 +109,26 @@ picture.emoji-gif img{
 }
 .list-blog {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(1, 1fr);
   gap: 32px;
   margin-top: 60px;
 }
+@media screen and (min-width: 768px) {
+  .list-blog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1440px) {
+  .list-blog {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1920px) {
+  .list-blog {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .list-blog a {
   text-decoration: none;
   color: #ffffff;
@@ -392,5 +414,14 @@ picture.emoji-gif img{
     justify-content: space-between;
     padding: 0;
   }
+}
+footer {
+  padding: 30px;
+}
+footer .credits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
   /*# sourceMappingURL=main.css.map */

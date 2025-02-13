@@ -5,14 +5,14 @@ html{
 body {
     background-color: $dark;
     color:$white;
-    @media screen and(min-width:768px) {
+    @media screen and (min-width:768px) {
       margin: 0 30px;  
     }
     margin: 0 20px;
 }
 
 main{
-    @media screen and(min-widht:768px){
+    @media screen and (min-widht:768px){
        margin: 0 30px;  
     }
    
@@ -22,4 +22,10 @@ picture.emoji-gif{
         width: 1em;
         height: 1em;
     }
+}
+#goToTop{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 500;
 }
