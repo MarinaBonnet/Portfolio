@@ -1,0 +1,70 @@
+/* ------------------------------
+   RESET CSS — Universel & Pro
+--------------------------------*/
+@use "../abstracts/variables" as *;
+
+/* 1) Remove default margins & paddings */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2) Smooth font rendering */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3) Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 4) Remove default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 5) Remove default image styles */
+svg {
+  display: inline;
+  max-width: 100%;
+}
+
+/* 6) Buttons inherit font */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+/* 7) Remove textarea resize handle (optional) */
+textarea {
+  resize: none;
+}
+
+/* 8) Body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* 9) Headings inherit font-weight ( gères dans le design) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  line-height: 1.2;
+}

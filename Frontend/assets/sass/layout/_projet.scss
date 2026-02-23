@@ -1,0 +1,118 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:color";
+
+.content {
+  position: relative;
+}
+.projects {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel__track {
+  position: relative;
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.project-card {
+  min-width: 100%;
+
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: $radius-m;
+    box-shadow: 0 4px 10px rgba(179, 136, 235, 0.4);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: $spacing-xs $spacing-s;
+    background: $color-secondary;
+    color: $color-subtitle;
+    border-radius: $radius-s;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      background: color.adjust($color-secondary, $lightness: -10%);
+    }
+  }
+}
+
+.carousel__button {
+  position: absolute;
+  display: none;
+  background: rgba(179, 136, 235, 0.3);
+  backdrop-filter: blur(2px);
+  border: none;
+  padding: $spacing-s;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  top: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transform: translateY(-50%);
+  transition: background 0.3s ease;
+  pointer-events: auto;
+
+  &:hover {
+    background: rgba(179, 136, 235, 0.65);
+  }
+  svg {
+    width: 18px;
+    height: 18px;
+    stroke: white; // flèche visible sur TOUTES les images }
+  }
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex: 1;
+    min-width: 0;
+  }
+  .projects {
+    margin-top: 0;
+  }
+  .carousel {
+    padding: $spacing-m;
+  }
+
+  .carousel__track {
+    display: flex;
+    gap: 20px;
+  }
+  .project-card {
+    min-width: calc(33.33% - 20px);
+  }
+  .carousel__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .carousel__button--prev {
+    left: 10px;
+  }
+  .carousel__button--next {
+    right: 10px;
+  }
+}

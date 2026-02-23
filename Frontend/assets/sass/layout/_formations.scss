@@ -1,0 +1,19 @@
+@use "sass:color";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+#formations {
+  padding: $spacing-s;
+  padding-bottom: 4rem;
+
+  h2 {
+    text-align: center;
+    margin-bottom: $spacing-s;
+  }
+  .education-item {
+    padding: $spacing-m;
+    border-left: 4px solid $color-primary;
+    border-radius: 6px;
+    max-width: 800px;
+  }
+}

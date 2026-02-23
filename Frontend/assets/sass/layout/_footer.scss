@@ -1,0 +1,16 @@
+@use "sass:color";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.footer {
+  text-align: center;
+  margin: 0;
+  padding-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    background: $gradient-primary;
+    padding: 0;
+  }
+}

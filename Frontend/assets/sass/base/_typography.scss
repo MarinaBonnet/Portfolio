@@ -1,0 +1,50 @@
+/* -----------------------------------
+   TYPOGRAPHY — Titres & paragraphes
+------------------------------------ */
+@use "../abstracts/variables" as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-title;
+  color: $color-title;
+  line-height: 1.2;
+  margin-bottom: $spacing-s;
+}
+
+h1 {
+  font-size: 3rem;
+  color: $color-title;
+}
+
+h2 {
+  font-size: 2.2rem;
+  color: $color-subtitle;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+p {
+  font-family: $font-body;
+  font-size: 1rem;
+  margin-bottom: $spacing-m;
+  color: $color-text-light;
+}
+
+span {
+  font-family: $font-title;
+  font-size: 1rem;
+  margin-bottom: $spacing-m;
+  color: $color-text-light;
+}
+
+/* Accentuation */
+strong {
+  color: $color-primary;
+  font-weight: 600;
+}

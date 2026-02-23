@@ -1,0 +1,726 @@
+@charset "UTF-8";
+/* Mixin responsive version 1
+header {
+  padding: 3rem;
+
+  @include respond(md) {
+    padding: 1.5rem;
+  }
+}
+*/
+/* version 2 mixin mobil first
+h1 {
+  font-size: 2rem;
+
+  @include mq(md) {
+    font-size: 3rem;
+  }
+}
+*/
+/*Version 3 ultra simple
+nav ul {
+  display: flex;
+
+  @include max(768px) {
+    flex-direction: column;
+  }
+}
+*/
+/* LORA — Regular */
+@font-face {
+  font-family: "Lora";
+  src: url("../fonts/lora/static/Lora-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* LORA — Bold */
+@font-face {
+  font-family: "Lora";
+  src: url("../fonts/lora/static/Lora-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* LORA — Italic */
+@font-face {
+  font-family: "Lora";
+  src: url("../fonts/lora/static/Lora-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playwrite IN Guides";
+  src: url("../fonts/playwrite/PlaywriteINGuides-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* ------------------------------
+   RESET CSS — Universel & Pro
+--------------------------------*/
+/* 1) Remove default margins & paddings */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2) Smooth font rendering */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3) Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 4) Remove default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 5) Remove default image styles */
+svg {
+  display: inline;
+  max-width: 100%;
+}
+
+/* 6) Buttons inherit font */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  background: none;
+}
+
+/* 7) Remove textarea resize handle (optional) */
+textarea {
+  resize: none;
+}
+
+/* 8) Body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* 9) Headings inherit font-weight ( gères dans le design) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+/* -----------------------------------
+   TYPOGRAPHY — Titres & paragraphes
+------------------------------------ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lora", serif;
+  color: #8093f1;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #8093f1;
+}
+
+h2 {
+  font-size: 2.2rem;
+  color: #72ddf7;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+p {
+  font-family: "Playwrite IN Guides", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #020122;
+}
+
+span {
+  font-family: "Lora", serif;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #020122;
+}
+
+/* Accentuation */
+strong {
+  color: #f7aef8;
+  font-weight: 600;
+}
+
+/* -----------------------------------
+   LAYOUT — Structure & sections
+------------------------------------ */
+main {
+  max-width: 100%;
+  overflow-x: hidden;
+  padding-bottom: 80px;
+  min-height: 100vh;
+}
+
+.content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 1rem;
+  padding-bottom: 3rem;
+}
+
+section {
+  max-width: 100%;
+  overflow-x: hidden;
+  padding-bottom: 4rem;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* ----------- DESKTOP & TABLETTE ----------- */
+@media (min-width: 768px) {
+  /* Structure principale */
+  main {
+    display: flex;
+    align-items: stretch;
+    padding-bottom: 0;
+    min-height: 100vh;
+  } /* Sidebar / Aside */
+  aside.contact {
+    width: 260px;
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+    overflow-y: auto;
+    padding: 1.5rem 1rem;
+    box-sizing: border-box;
+  }
+  /* Contenu principal */
+  .content {
+    flex: 1;
+    min-width: 0;
+    padding: 2rem;
+  }
+}
+/*-------- Header & Navigation (mobile-first) -------*/
+.header {
+  padding: 2rem 0.5rem;
+  min-height: 280px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  max-width: 100vw;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7);
+  box-shadow: 0 0 6px #b388eb;
+  border-radius: 3px;
+  z-index: 1;
+}
+.header__content {
+  max-width: 600px;
+  overflow-x: hidden;
+}
+.header__content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.header__content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+.header__content .header__nav ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+.header__content li {
+  color: #b388eb;
+}
+
+.profile-diamond {
+  max-width: 100%;
+  width: 200px;
+  height: 200px;
+  top: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+  /*creation d'un losange */
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  position: absolute;
+  z-index: 10;
+}
+
+.profile-diamond .logo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ----------- Desktop & tablette ----------- */
+@media (min-width: 768px) {
+  /* HEADER EN LIGNE */
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 4rem 2rem;
+  }
+  /* IMAGE À GAUCHE */
+  .profile-diamond {
+    position: static;
+    transform: none;
+    width: 220px;
+    height: 220px;
+    flex-shrink: 0;
+    order: 1;
+  }
+  /* TEXTE À DROITE */
+  .header__content {
+    flex: 1;
+    text-align: center;
+    order: 2;
+  }
+  /* NAVIGATION HORIZONTALE — même spécificité que mobile */
+  .header__content .header__nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    /* reset du grid propre */
+    grid-template-columns: unset;
+    grid-auto-flow: unset;
+  }
+}
+/* ------------------------------
+   CONTACT — Mobile-first
+   Footer mobile / aside desktop
+--------------------------------*/
+.contact {
+  /* MOBILE = footer simple */
+  position: static;
+  width: 100vw;
+  padding: 1rem;
+  background: #eef1ef;
+  color: #72ddf7;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  max-width: 100vw;
+  /* On enlève la bordure classique */
+  border-top: none;
+  position: relative;
+  /* Gradient animé */
+}
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7, #f7aef8);
+  background-size: 300% 100%;
+  animation: gradientMove 4s linear infinite;
+  box-shadow: 0 0 6px #b388eb;
+}
+
+.contact,
+.contact * {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Animation du gradient */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+/* Le titre est caché en mobile */
+.contact h2 {
+  display: none;
+}
+
+/* Bouton d’ouverture mobile */
+.contact__toggle {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #b388eb;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Liste des liens (fermée par défaut) */
+.contact__list {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .contact {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    margin-top: 0;
+    max-width: 100vw;
+    overflow: hidden;
+    z-index: 9999;
+  }
+}
+/* Ouverture mobile */
+.contact.open .contact__list {
+  display: flex;
+}
+
+/* ------------------------------
+   DESKTOP — Sidebar sticky
+--------------------------------*/
+@media (min-width: 768px) {
+  .contact {
+    position: sticky;
+    max-width: 300px;
+    min-height: 200vh;
+    padding: 2rem 1rem;
+    border-right: 4px solid #b388eb;
+  }
+  .contact::before {
+    display: none;
+  }
+  .contact h2 {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .contact__toggle {
+    display: none;
+  }
+  .contact__list {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 0;
+  }
+}
+.content {
+  position: relative;
+}
+
+.projects {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel__track {
+  position: relative;
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.project-card {
+  min-width: 100%;
+}
+.project-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(179, 136, 235, 0.4);
+}
+.project-card .btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #b388eb;
+  color: #72ddf7;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.project-card .btn:hover {
+  background: rgb(151.1151079137, 92.3381294964, 227.6618705036);
+}
+
+.carousel__button {
+  position: absolute;
+  display: none;
+  background: rgba(179, 136, 235, 0.3);
+  backdrop-filter: blur(2px);
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  top: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transform: translateY(-50%);
+  transition: background 0.3s ease;
+  pointer-events: auto;
+}
+.carousel__button:hover {
+  background: rgba(179, 136, 235, 0.65);
+}
+.carousel__button svg {
+  width: 18px;
+  height: 18px;
+  stroke: white;
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex: 1;
+    min-width: 0;
+  }
+  .projects {
+    margin-top: 0;
+  }
+  .carousel {
+    padding: 2rem;
+  }
+  .carousel__track {
+    display: flex;
+    gap: 20px;
+  }
+  .project-card {
+    min-width: calc(33.33% - 20px);
+  }
+  .carousel__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  .carousel__button--prev {
+    left: 10px;
+  }
+  .carousel__button--next {
+    right: 10px;
+  }
+}
+#formations {
+  padding: 1rem;
+  padding-bottom: 4rem;
+}
+#formations h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+#formations .education-item {
+  padding: 2rem;
+  border-left: 4px solid #f7aef8;
+  border-radius: 6px;
+  max-width: 800px;
+}
+
+#skills {
+  padding: 1rem;
+  padding-bottom: 4rem;
+}
+#skills h2 {
+  text-align: center;
+}
+#skills .skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+#skills .skills-category {
+  margin-bottom: 1rem;
+}
+#skills .skill {
+  margin-bottom: 1rem;
+}
+#skills .skill-name {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+#skills .skill-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #eef1ef;
+  border-radius: 50px;
+  overflow: hidden;
+}
+#skills .skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7);
+  border-radius: 50px;
+  transition: width 0.6s ease;
+}
+
+@media (min-width: 600px) {
+  #skills .skills-grid {
+    padding: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  #skills .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+#about {
+  padding: 1rem;
+}
+#about h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+#about .about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  max-width: 800px;
+}
+
+@media (min-width: 600px) {
+  #about .about-content {
+    margin: 0 auto;
+    padding: 2rem;
+  }
+}
+#interets {
+  padding: 1rem;
+  padding-bottom: 4rem;
+}
+#interets h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+#interets ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+#interets li {
+  font-family: "Lora", serif;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  #interets {
+    padding: 2rem;
+  }
+}
+#closing {
+  text-align: center;
+  margin-top: 60px;
+  padding: 1rem;
+  color: #fff;
+}
+#closing .cosmic-comet {
+  position: relative;
+  width: 100%;
+  height: 240px;
+}
+#closing #cometCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 12px #b388eb) drop-shadow(0 0 20px #f7aef8);
+}
+#closing .closing-txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  color: #b388eb;
+  font-size: 1.2rem;
+  text-align: center;
+  pointer-events: none;
+  /* important : le texte ne bloque pas les clics */
+  width: 300px;
+}
+
+@media (min-width: 768px) {
+  .cosmic-comet {
+    height: 280px;
+  }
+  .closing-text {
+    font-size: 1.6rem;
+  }
+}
+.footer {
+  text-align: center;
+  margin: 0;
+  padding-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    background: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7);
+    padding: 0;
+  }
+}/*# sourceMappingURL=main.css.map */

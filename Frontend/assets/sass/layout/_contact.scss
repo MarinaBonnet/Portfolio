@@ -1,0 +1,140 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+/* ------------------------------
+   CONTACT — Mobile-first
+   Footer mobile / aside desktop
+--------------------------------*/
+
+.contact {
+  /* MOBILE = footer simple */
+  position: static;
+  width: 100vw;
+  padding: 1rem;
+  background: $color-theme-light;
+  color: $color-subtitle;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  max-width: 100vw;
+  /* On enlève la bordure classique */
+  border-top: none;
+  position: relative; // indispensable pour le pseudo-élément
+
+  /* Gradient animé */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; // comme un border-top
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      #f7aef8,
+      #b388eb,
+      #8093f1,
+      #72ddf7,
+      #f7aef8
+    );
+    background-size: 300% 100%;
+    animation: gradientMove 4s linear infinite;
+    box-shadow: (0 0 6px #b388eb);
+  }
+}
+.contact,
+.contact * {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+/* Animation du gradient */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* Le titre est caché en mobile */
+.contact h2 {
+  display: none;
+}
+
+/* Bouton d’ouverture mobile */
+.contact__toggle {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: $color-secondary;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Liste des liens (fermée par défaut) */
+
+.contact__list {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .contact {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    margin-top: 0; // on annule la marge
+    max-width: 100vw;
+    overflow: hidden;
+    z-index: 9999;
+  }
+}
+
+/* Ouverture mobile */
+
+.contact.open .contact__list {
+  display: flex;
+}
+
+/* ------------------------------
+   DESKTOP — Sidebar sticky
+--------------------------------*/
+
+@media (min-width: 768px) {
+  .contact {
+    position: sticky;
+    max-width: 300px;
+    min-height: 200vh; // pour que la sidebar prenne toute la hauteur
+    padding: 2rem 1rem;
+    border-right: 4px solid $color-secondary;
+  }
+
+  .contact::before {
+    display: none; // on masque le gradient en desktop
+  }
+
+  .contact h2 {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .contact__toggle {
+    display: none;
+  }
+
+  .contact__list {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 0;
+  }
+}

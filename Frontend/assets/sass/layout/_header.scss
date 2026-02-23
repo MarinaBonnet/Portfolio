@@ -1,0 +1,119 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+/*-------- Header & Navigation (mobile-first) -------*/
+.header {
+  padding: 2rem 0.5rem;
+  min-height: 280px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  max-width: 100vw;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7);
+    box-shadow: (0 0 6px #b388eb);
+    border-radius: 3px;
+    z-index: 1;
+  }
+
+  &__content {
+    max-width: 600px;
+    overflow-x: hidden;
+
+    h1 {
+      font-size: $spacing-m;
+      margin-bottom: $spacing-s;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .header__nav ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    li {
+      color: $color-secondary;
+    }
+  }
+}
+.profile-diamond {
+  max-width: 100%;
+  width: 200px;
+  height: 200px;
+  top: 180px; // ajuster selon le design
+  left: 50%;
+  transform: translateX(-50%);
+  /*creation d'un losange */
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  position: absolute;
+  z-index: 10; // pour que le diamant soit au-dessus de l’arrière-plan
+}
+
+.profile-diamond .logo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ----------- Desktop & tablette ----------- */
+
+@media (min-width: 768px) {
+  /* HEADER EN LIGNE */
+  .header {
+    display: flex;
+    flex-direction: row; // ← FINI la colonne
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 4rem 2rem;
+  }
+
+  /* IMAGE À GAUCHE */
+  .profile-diamond {
+    position: static; // ← FINI l’absolute
+    transform: none;
+    width: 220px;
+    height: 220px;
+    flex-shrink: 0;
+    order: 1;
+  }
+
+  /* TEXTE À DROITE */
+  .header__content {
+    flex: 1;
+    text-align: center;
+    order: 2;
+  }
+
+  /* NAVIGATION HORIZONTALE — même spécificité que mobile */
+  .header__content .header__nav ul {
+    display: flex; // ← écrase le grid
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    /* reset du grid propre */
+    grid-template-columns: unset;
+    grid-auto-flow: unset;
+  }
+}

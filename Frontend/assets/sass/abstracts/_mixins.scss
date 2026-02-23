@@ -1,0 +1,75 @@
+// abstracts/_mixins.scss
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+/* Mixin responsive version 1
+header {
+  padding: 3rem;
+
+  @include respond(md) {
+    padding: 1.5rem;
+  }
+}
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: #{$breakpoint-sm}) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: #{$breakpoint-md}) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: #{$breakpoint-lg}) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (max-width: #{$breakpoint-xl}) {
+      @content;
+    }
+  }
+}
+
+/* version 2 mixin mobil first
+h1 {
+  font-size: 2rem;
+
+  @include mq(md) {
+    font-size: 3rem;
+  }
+}
+*/
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+@mixin mq($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+/*Version 3 ultra simple
+nav ul {
+  display: flex;
+
+  @include max(768px) {
+    flex-direction: column;
+  }
+}
+*/
+@mixin max($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}

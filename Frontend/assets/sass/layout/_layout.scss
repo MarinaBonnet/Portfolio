@@ -1,0 +1,53 @@
+/* -----------------------------------
+   LAYOUT — Structure & sections
+------------------------------------ */
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+main {
+  max-width: 100%;
+  overflow-x: hidden;
+  padding-bottom: 80px; // espace pour éviter que le footer fixe ne cache le contenu
+  min-height: 100vh; // garantit que la page occupe toute la hauteur
+}
+.content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 1rem;
+  padding-bottom: 3rem;
+}
+section {
+  max-width: 100%;
+  overflow-x: hidden;
+  padding-bottom: 4rem;
+  box-sizing: border-box;
+  display: block;
+}
+/* ----------- DESKTOP & TABLETTE ----------- */
+@media (min-width: 768px) {
+  /* Structure principale */
+  main {
+    display: flex;
+    align-items: stretch; // ⭐ étire aside + content
+    padding-bottom: 0;
+    min-height: 100vh; // ⭐ occupe toute la hauteur de l’écran
+  } /* Sidebar / Aside */
+
+  aside.contact {
+    width: 260px; // largeur de ta sidebar
+
+    position: sticky; // ⭐ reste visible quand on scroll
+    top: 0;
+    flex-shrink: 0;
+    overflow-y: auto; // si beaucoup de liens
+    padding: 1.5rem 1rem;
+    box-sizing: border-box;
+  }
+  /* Contenu principal */
+  .content {
+    flex: 1;
+    min-width: 0; // évite les débordements
+    padding: 2rem;
+  }
+}

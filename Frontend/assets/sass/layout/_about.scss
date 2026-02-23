@@ -1,0 +1,26 @@
+@use "sass:color";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+#about {
+  padding: $spacing-s;
+
+  h2 {
+    margin-bottom: $spacing-s;
+    text-align: center;
+  }
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-s;
+    line-height: 1.6;
+    font-size: 1rem;
+    max-width: 800px;
+  }
+}
+@media (min-width: 600px) {
+  #about .about-content {
+    margin: 0 auto;
+    padding: $spacing-m;
+  }
+}

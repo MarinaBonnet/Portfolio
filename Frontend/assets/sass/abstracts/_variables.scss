@@ -1,0 +1,33 @@
+// Palette
+$color-theme-light: #eef1ef;
+$color-text-light: #020122;
+$color-them-dark: #102b3f;
+$color-text-dark: #f4f4ed;
+$color-primary: #f7aef8;
+$color-secondary: #b388eb;
+$color-title: #8093f1;
+$color-subtitle: #72ddf7;
+
+//gradients
+$gradient-primary: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7);
+$gradient-secondary: linear-gradient(
+  180deg,
+  #f7aef8,
+  #b388eb,
+  #8093f1,
+  #72ddf7
+);
+//Fonts
+$font-title: "Lora", serif;
+$font-body: "Playwrite IN Guides", sans-serif;
+
+//Especement & radius
+$spacing-xs: 0.5rem;
+$spacing-s: 1rem;
+$spacing-m: 2rem;
+$spacing-l: 3rem;
+$spacing-xl: 4rem;
+
+$radius-s: 4px;
+$radius-m: 8px;
+$radius-l: 16px;
