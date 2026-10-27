@@ -24,6 +24,10 @@
 
             <p>Concevoir, développer et faire évoluer des projets web
                 accessibles, responsives et soignés.</p>
+            <a href="https://marinabonnet.github.io/cv-marina-bonnet/" class="header__cv" target="_blank"
+                rel="noopener noreferrer">
+                Consulter mon CV
+            </a>
 
             <nav class="header__nav" aria-label="Navigation principale">
                 <ul>
@@ -54,81 +58,157 @@
             </ul>
         </aside>
         <div class="content">
-            <!--Section projets -->
+
+            <!-- Section projets -->
             <section class="projects" id="projects">
-                <!--carrousel des projets avec titre au survol JS-->
                 <h2>Mes projets</h2>
+
                 <div class="carousel">
+
                     <button type="button" class="carousel__button carousel__button--prev" aria-label="Projet précédent">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M12 4L6 10L12 16" stroke="white" stroke-width="1.8" stroke-linecap="round"
                                 stroke-linejoin="round" />
                         </svg>
                     </button>
+
                     <div class="carousel__track">
+
+                        <!-- Yamzilla -->
                         <article class="project-card">
-                            <img src="assets/images/logo.png" alt="Projet 1">
-                            <h3>Yamzilla — Jeu interactif en Javascript</h3>
-                            <p class="project-card__description">Un mini‑jeu développé en JavaScript pour explorer la
-                                logique, les événements, la
-                                manipulation du DOM et les interactions dynamiques. Un projet ludique qui met en avant
-                                la structure du code, la clarté des fonctions et une interface simple et responsive.</p>
+                            <img src="assets/images/logo.png" alt="Logo du jeu Yamzilla" loading="lazy">
+
+                            <h3>Yamzilla — Jeu interactif JS</h3>
+
+                            <p class="project-card__description">
+                                Développement d’un mini-jeu interactif en JavaScript.
+                                Ce projet m’a permis de travailler la logique
+                                applicative, la gestion des événements et la
+                                manipulation du DOM. Il met en pratique les
+                                interactions dynamiques et l’organisation du code
+                                dans une interface web.
+                            </p>
+
                             <button class="project-card__toggle" type="button" aria-expanded="false">
                                 Lire la suite
                             </button>
+
                             <a href="https://marinabonnet.github.io/Yamzilla/" class="btn" target="_blank"
-                                rel="noopener noreferrer">Voir le
-                                projet</a>
+                                rel="noopener noreferrer">
+                                Voir la démo
+                            </a>
+
+                            <a href="https://github.com/MarinaBonnet/Yamzilla" class="btn" target="_blank"
+                                rel="noopener noreferrer">
+                                Code source
+                            </a>
                         </article>
+
+                        <!-- Site restaurant -->
                         <article class="project-card">
-                            <img src="assets/images/burger.jpg" alt="Projet 2">
+                            <img src="assets/images/burger.jpg" alt="Aperçu du site vitrine de restaurant"
+                                loading="lazy">
+
                             <h3>Restaurant — Site vitrine responsive</h3>
-                            <p class="project-card__description">Intégration complète d’un site vitrine pour un
-                                restaurant : mise en page élégante,
-                                typographie soignée, sections structurées, responsive design et respect des bonnes
-                                pratiques HTML/CSS. Un projet orienté UX, lisibilité et cohérence visuelle</p>
+
+                            <p class="project-card__description">
+                                Réalisation d’un site vitrine pour un restaurant,
+                                de la structuration des pages à la mise en forme
+                                de l’interface. Le projet met en avant l’intégration
+                                HTML et CSS, l’organisation des contenus, la
+                                cohérence visuelle et l’adaptation aux différents
+                                écrans.
+                            </p>
+
                             <button class="project-card__toggle" type="button" aria-expanded="false">
                                 Lire la suite
                             </button>
+
                             <a href="https://marinabonnet.github.io/ProjetRestaurant/" class="btn" target="_blank"
-                                rel="noopener noreferrer">Voir
-                                le projet</a>
+                                rel="noopener noreferrer">
+                                Voir la démo
+                            </a>
+
+                            <a href="https://github.com/MarinaBonnet/ProjetRestaurant" class="btn" target="_blank"
+                                rel="noopener noreferrer">
+                                Code source
+                            </a>
                         </article>
+
+                        <!-- Code&Craft -->
                         <article class="project-card">
                             <img src="assets/images/logoClaire.png" alt="Logo de Code&Craft" loading="lazy">
-                            <h3>Code&Craft</h3>
-                            <p class="project-card__description">Site vitrine de Code&Craft, mon activité freelance en
-                                développement web. Je conçois des sites modernes, responsive et personnalisés pour aider
-                                les professionnels à développer leur présence en ligne et à valoriser leur activité.</p>
+
+                            <h3>Code&Craft — Site professionnel</h3>
+
+                            <p class="project-card__description">
+                                Conception de mon site professionnel pour présenter
+                                mon activité freelance en développement web.
+                                Ce projet me permet de travailler la structure
+                                des pages, l’identité visuelle, le responsive design
+                                et l’organisation des styles avec Sass. Il présente
+                                mes services et mon approche de la création web.
+                            </p>
+
                             <button class="project-card__toggle" type="button" aria-expanded="false">
                                 Lire la suite
                             </button>
-                            <a href="https://codecraft-web.fr" class="btn" target="_blank"
-                                rel="noopener noreferrer">Découvrir Code&Craft</a>
+
+                            <a href="https://codecraft-web.fr" class="btn" target="_blank" rel="noopener noreferrer">
+                                Voir le site
+                            </a>
+
+                            <a href="https://github.com/MarinaBonnet/Code-Craft" class="btn" target="_blank"
+                                rel="noopener noreferrer">
+                                Code source
+                            </a>
                         </article>
+
+                        <!-- Esportify -->
                         <article class="project-card">
-                            <img src="assets/images/logoManette.png" alt="Projet 4">
+                            <img src="assets/images/logoManette.png" alt="Logo de la plateforme Esportify"
+                                loading="lazy">
+
                             <h3>Esportify — Plateforme e-sport</h3>
-                            <p class="project-card__description">Projet ECF complet (Titre RNCP DWWM): intégration d’une
-                                plateforme dédiée à l’e‑sport,
-                                avec pages
-                                structurées, composants réutilisables, responsive design et mise en avant des contenus.
-                                Un travail axé sur la cohérence, la hiérarchie visuelle et l’accessibilité.</p>
+
+                            <p class="project-card__description">
+                                Réalisation d’une plateforme web de gestion
+                                d’événements e-sport dans le cadre de mon projet
+                                de formation DWWM. Développée avec Symfony,
+                                PHP, Twig et Doctrine, elle met en œuvre la gestion
+                                des utilisateurs et des événements, les rôles,
+                                les formulaires et les contrôles de sécurité.
+                                Le projet utilise également des bases de données
+                                et un environnement Docker.
+                            </p>
+
                             <button class="project-card__toggle" type="button" aria-expanded="false">
                                 Lire la suite
                             </button>
+
                             <a href="https://esportify.codecraft-web.fr" class="btn" target="_blank"
-                                rel="noopener noreferrer">Voir le projet</a>
+                                rel="noopener noreferrer">
+                                Voir la démo
+                            </a>
+
+                            <a href="https://github.com/MarinaBonnet/Esportify3.0" class="btn" target="_blank"
+                                rel="noopener noreferrer">
+                                Code source
+                            </a>
                         </article>
+
                     </div>
+
                     <button type="button" class="carousel__button carousel__button--next" aria-label="Projet suivant">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M8 4L14 10L8 16" stroke="white" stroke-width="1.8" stroke-linecap="round"
                                 stroke-linejoin="round" />
                         </svg>
                     </button>
+
                 </div>
             </section>
+
             <!--Séction compétences-->
             <section class="skills" id="skills">
 

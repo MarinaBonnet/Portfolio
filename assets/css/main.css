@@ -227,8 +227,9 @@ section {
     padding: 2rem;
   }
 }
-/*-------- Header & Navigation (mobile-first) -------*/
 .header {
+  width: 100%;
+  box-sizing: border-box;
   padding: 2rem 0.5rem;
   min-height: 280px;
   text-align: center;
@@ -237,7 +238,6 @@ section {
   align-items: center;
   position: relative;
   z-index: 1;
-  max-width: 100vw;
 }
 .header::after {
   content: "";
@@ -252,8 +252,8 @@ section {
   z-index: 1;
 }
 .header__content {
+  width: 100%;
   max-width: 600px;
-  overflow-x: hidden;
 }
 .header__content h1 {
   font-size: 2rem;
@@ -263,7 +263,26 @@ section {
   font-size: 1.1rem;
   margin-bottom: 1.2rem;
 }
-.header__content .header__nav ul {
+.header__cv {
+  display: inline-block;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  font-family: "Playwrite Italia Tradizionale", sans-serif;
+  color: #171321;
+  background: linear-gradient(90deg, #a78bfa, #d4af37);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+.header__cv:hover {
+  transform: translateY(-2px);
+}
+.header__cv:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 4px;
+}
+.header__nav ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem 1rem;
@@ -272,41 +291,23 @@ section {
   margin: 0;
   text-align: center;
 }
-.header__content li {
+.header__nav a {
+  font-family: "Lora", serif;
   color: #d4af37;
+  text-decoration: none;
+}
+.header__nav a:hover {
+  color: #a78bfa;
 }
 
-.profile-diamond {
-  max-width: 100%;
-  width: 200px;
-  height: 200px;
-  top: 180px;
-  left: 50%;
-  transform: translateX(-50%);
-  /*creation d'un losange */
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  position: absolute;
-  z-index: 10;
-}
-
-.profile-diamond .logo {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-/* ----------- Desktop & tablette ----------- */
 @media (min-width: 768px) {
-  /* HEADER EN LIGNE */
   .header {
-    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 3rem;
     padding: 4rem 2rem;
   }
-  /* IMAGE À GAUCHE */
   .profile-diamond {
     position: static;
     transform: none;
@@ -315,22 +316,19 @@ section {
     flex-shrink: 0;
     order: 1;
   }
-  /* TEXTE À DROITE */
   .header__content {
     flex: 1;
+    min-width: 0;
     text-align: center;
     order: 2;
   }
-  /* NAVIGATION HORIZONTALE — même spécificité que mobile */
-  .header__content .header__nav ul {
+  .header__nav ul {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
-    /* reset du grid propre */
-    grid-template-columns: unset;
-    grid-auto-flow: unset;
   }
 }
 /* ------------------------------
@@ -506,13 +504,13 @@ section {
   font: inherit;
   text-decoration: underline;
   display: block;
-  margin: 0.5rem auto 1rem;
+  margin: 0.75rem auto 1rem;
 }
 .project-card .btn {
   display: inline-block;
-  margin-top: 0.5rem;
+  margin: 0.5rem 0.2rem;
   padding: 0.5rem 1rem;
-  background: #d4af37;
+  background: #a78bfa;
   color: #171321;
   border-radius: 4px;
   text-decoration: none;
