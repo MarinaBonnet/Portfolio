@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/* Palette */
+/* Gradients */
+/* Fonts */
+/* Espacements */
+/* Bordures arrondies */
 /* Mixin responsive version 1
 header {
   padding: 3rem;
@@ -29,7 +34,7 @@ nav ul {
 /* LORA — Regular */
 @font-face {
   font-family: "Lora";
-  src: url("../fonts/lora/static/Lora-Regular.ttf") format("truetype");
+  src: url("../fonts/Lora/static/Lora-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -37,7 +42,7 @@ nav ul {
 /* LORA — Bold */
 @font-face {
   font-family: "Lora";
-  src: url("../fonts/lora/static/Lora-Bold.ttf") format("truetype");
+  src: url("../fonts/Lora/static/Lora-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -45,14 +50,14 @@ nav ul {
 /* LORA — Italic */
 @font-face {
   font-family: "Lora";
-  src: url("../fonts/lora/static/Lora-Italic.ttf") format("truetype");
+  src: url("../fonts/Lora/static/Lora-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: "Playwrite IN Guides";
-  src: url("../fonts/playwrite/PlaywriteINGuides-Regular.ttf") format("truetype");
+  font-family: "Playwrite Italia Tradizionale";
+  src: url("../fonts/PlaywriteItalia/static/PlaywriteITTrad-Thin.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -89,7 +94,7 @@ a {
 
 /* 5) Remove default image styles */
 svg {
-  display: inline;
+  display: block;
   max-width: 100%;
 }
 
@@ -113,6 +118,8 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   overflow-x: hidden;
+  background-color: #171321;
+  color: #f4f0fa;
 }
 
 /* 9) Headings inherit font-weight ( gères dans le design) */
@@ -126,9 +133,6 @@ h6 {
   line-height: 1.2;
 }
 
-/* -----------------------------------
-   TYPOGRAPHY — Titres & paragraphes
------------------------------------- */
 h1,
 h2,
 h3,
@@ -136,19 +140,18 @@ h4,
 h5,
 h6 {
   font-family: "Lora", serif;
-  color: #8093f1;
+  color: #d4af37;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
 h1 {
   font-size: 3rem;
-  color: #8093f1;
 }
 
 h2 {
   font-size: 2.2rem;
-  color: #72ddf7;
+  color: #c4b5fd;
 }
 
 h3 {
@@ -156,22 +159,20 @@ h3 {
 }
 
 p {
-  font-family: "Playwrite IN Guides", sans-serif;
+  font-family: "Playwrite Italia Tradizionale", sans-serif;
   font-size: 1rem;
+  line-height: 1.7;
   margin-bottom: 2rem;
-  color: #020122;
+  color: #f4f0fa;
 }
 
 span {
-  font-family: "Lora", serif;
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  color: #020122;
+  font-family: inherit;
+  color: inherit;
 }
 
-/* Accentuation */
 strong {
-  color: #f7aef8;
+  color: #a78bfa;
   font-weight: 600;
 }
 
@@ -245,8 +246,8 @@ section {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7);
-  box-shadow: 0 0 6px #b388eb;
+  background: linear-gradient(90deg, #a78bfa, #d4af37);
+  box-shadow: 0 0 8px #a78bfa;
   border-radius: 3px;
   z-index: 1;
 }
@@ -272,7 +273,7 @@ section {
   text-align: center;
 }
 .header__content li {
-  color: #b388eb;
+  color: #d4af37;
 }
 
 .profile-diamond {
@@ -338,13 +339,11 @@ section {
 --------------------------------*/
 .contact {
   /* MOBILE = footer simple */
-  position: static;
   width: 100vw;
   padding: 1rem;
-  background: #eef1ef;
-  color: #72ddf7;
+  background: #171321;
+  color: #c4b5fd;
   box-sizing: border-box;
-  overflow-x: hidden;
   max-width: 100vw;
   /* On enlève la bordure classique */
   border-top: none;
@@ -358,16 +357,15 @@ section {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7, #f7aef8);
+  background: linear-gradient(90deg, #a78bfa, #d4af37);
   background-size: 300% 100%;
   animation: gradientMove 4s linear infinite;
-  box-shadow: 0 0 6px #b388eb;
+  box-shadow: 0 0 8px #a78bfa;
 }
 
 .contact,
 .contact * {
   max-width: 100%;
-  overflow-x: hidden;
 }
 
 /* Animation du gradient */
@@ -381,7 +379,10 @@ section {
 }
 /* Le titre est caché en mobile */
 .contact h2 {
+  margin-top: 2px;
   display: none;
+  color: #d4af37;
+  text-align: center;
 }
 
 /* Bouton d’ouverture mobile */
@@ -390,7 +391,7 @@ section {
   width: 100%;
   background: none;
   border: none;
-  color: #b388eb;
+  color: #d4af37;
   font-size: 2rem;
   text-align: center;
   cursor: pointer;
@@ -407,6 +408,9 @@ section {
   overflow-x: hidden;
   padding-top: 0.5rem;
 }
+.contact__list li {
+  font-family: "Lora", serif;
+}
 
 @media (max-width: 767px) {
   .contact {
@@ -416,7 +420,6 @@ section {
     width: 100vw;
     margin-top: 0;
     max-width: 100vw;
-    overflow: hidden;
     z-index: 9999;
   }
 }
@@ -432,9 +435,9 @@ section {
   .contact {
     position: sticky;
     max-width: 300px;
-    min-height: 200vh;
+    min-height: 100vh;
     padding: 2rem 1rem;
-    border-right: 4px solid #b388eb;
+    border-right: 4px solid #a78bfa;
   }
   .contact::before {
     display: none;
@@ -485,17 +488,38 @@ section {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(179, 136, 235, 0.4);
 }
+.project-card .project-card__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.project-card .project-card__description.is-expanded {
+  display: block;
+  overflow: visible;
+}
+.project-card .project-card__toggle {
+  background: transparent;
+  border: none;
+  color: #d4af37;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+  display: block;
+  margin: 0.5rem auto 1rem;
+}
 .project-card .btn {
   display: inline-block;
+  margin-top: 0.5rem;
   padding: 0.5rem 1rem;
-  background: #b388eb;
-  color: #72ddf7;
+  background: #d4af37;
+  color: #171321;
   border-radius: 4px;
   text-decoration: none;
   transition: 0.3s;
 }
 .project-card .btn:hover {
-  background: rgb(151.1151079137, 92.3381294964, 227.6618705036);
+  background: rgb(177.7777777778, 144.8888888889, 38.2222222222);
 }
 
 .carousel__button {
@@ -534,32 +558,56 @@ section {
     margin-top: 0;
   }
   .carousel {
-    padding: 2rem;
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 3.5rem;
+    overflow: hidden;
+    box-sizing: border-box;
   }
   .carousel__track {
     display: flex;
     gap: 20px;
+    transition: transform 0.4s ease;
   }
   .project-card {
-    min-width: calc(33.33% - 20px);
+    flex: 0 0 calc((100% - 40px) / 3);
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .project-card h3,
+  .project-card p {
+    margin-top: 1rem;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
   .carousel__button {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
     top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
   }
-  svg {
+  .carousel__button svg {
     width: 20px;
     height: 20px;
   }
+  img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
   .carousel__button--prev {
-    left: 10px;
+    left: 0.5px;
   }
   .carousel__button--next {
-    right: 10px;
+    right: 0.5px;
   }
 }
 #formations {
@@ -572,7 +620,7 @@ section {
 }
 #formations .education-item {
   padding: 2rem;
-  border-left: 4px solid #f7aef8;
+  border-left: 4px solid #a78bfa;
   border-radius: 6px;
   max-width: 800px;
 }
@@ -584,6 +632,11 @@ section {
 #skills h2 {
   text-align: center;
 }
+#skills li {
+  font-family: "Playwrite Italia Tradizionale", sans-serif;
+  color: #f4f0fa;
+  line-height: 1.7;
+}
 #skills .skills-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -592,28 +645,6 @@ section {
 #skills .skills-category {
   margin-bottom: 1rem;
 }
-#skills .skill {
-  margin-bottom: 1rem;
-}
-#skills .skill-name {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-#skills .skill-bar {
-  width: 100%;
-  height: 10px;
-  background-color: #eef1ef;
-  border-radius: 50px;
-  overflow: hidden;
-}
-#skills .skill-progress {
-  height: 100%;
-  background: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7);
-  border-radius: 50px;
-  transition: width 0.6s ease;
-}
-
 @media (min-width: 600px) {
   #skills .skills-grid {
     padding: 2rem;
@@ -625,6 +656,7 @@ section {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
 #about {
   padding: 1rem;
 }
@@ -666,6 +698,7 @@ section {
 #interets li {
   font-family: "Lora", serif;
   text-align: center;
+  font-size: 16px;
 }
 
 @media (min-width: 768px) {
@@ -688,7 +721,7 @@ section {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 0 12px #b388eb) drop-shadow(0 0 20px #f7aef8);
+  filter: drop-shadow(0 0 12px #a78bfa) drop-shadow(0 0 20px #d4af37);
 }
 #closing .closing-txt {
   position: absolute;
@@ -696,7 +729,7 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 20;
-  color: #b388eb;
+  color: #d4af37;
   font-size: 1.2rem;
   text-align: center;
   pointer-events: none;
@@ -704,11 +737,34 @@ section {
   width: 300px;
 }
 
+.closing-content {
+  max-width: 650px;
+  margin: 1rem auto 0;
+  padding: 0 1rem;
+}
+.closing-content p {
+  color: #f4f0fa;
+  line-height: 1.7;
+}
+.closing-content a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: #171321;
+  background: #d4af37;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.closing-content a:hover {
+  background: rgb(177.7777777778, 144.8888888889, 38.2222222222);
+}
+
 @media (min-width: 768px) {
   .cosmic-comet {
     height: 280px;
   }
-  .closing-text {
+  .closing-txt {
     font-size: 1.6rem;
   }
 }
@@ -720,7 +776,9 @@ section {
 
 @media (min-width: 768px) {
   .footer {
-    background: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7);
+    background: linear-gradient(90deg, #a78bfa, #d4af37);
     padding: 0;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

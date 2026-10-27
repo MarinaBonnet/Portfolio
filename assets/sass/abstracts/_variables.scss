@@ -1,33 +1,35 @@
-// Palette
-$color-theme-light: #eef1ef;
-$color-text-light: #020122;
-$color-them-dark: #102b3f;
-$color-text-dark: #f4f4ed;
-$color-primary: #f7aef8;
-$color-secondary: #b388eb;
-$color-title: #8093f1;
-$color-subtitle: #72ddf7;
+/* Palette */
+$color-theme-light: #f4f0fa;
+$color-text-light: #171321;
 
-//gradients
-$gradient-primary: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7);
-$gradient-secondary: linear-gradient(
-  180deg,
-  #f7aef8,
-  #b388eb,
-  #8093f1,
-  #72ddf7
-);
-//Fonts
+$color-theme-dark: #171321;
+$color-text-dark: #f4f0fa;
+
+$color-primary: #a78bfa;
+$color-secondary: #d4af37;
+$color-title: #d4af37;
+$color-subtitle: #c4b5fd;
+
+$color-surface: #241b35;
+$color-border: #44365b;
+
+/* Gradients */
+$gradient-primary: linear-gradient(90deg, #a78bfa, #d4af37);
+
+$gradient-secondary: linear-gradient(180deg, #a78bfa, #d4af37);
+
+/* Fonts */
 $font-title: "Lora", serif;
-$font-body: "Playwrite IN Guides", sans-serif;
+$font-body: "Playwrite Italia Tradizionale", sans-serif;
 
-//Especement & radius
+/* Espacements */
 $spacing-xs: 0.5rem;
 $spacing-s: 1rem;
 $spacing-m: 2rem;
 $spacing-l: 3rem;
 $spacing-xl: 4rem;
 
+/* Bordures arrondies */
 $radius-s: 4px;
 $radius-m: 8px;
 $radius-l: 16px;

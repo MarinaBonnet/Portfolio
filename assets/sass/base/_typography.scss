@@ -1,6 +1,3 @@
-/* -----------------------------------
-   TYPOGRAPHY — Titres & paragraphes
------------------------------------- */
 @use "../abstracts/variables" as *;
 
 h1,
@@ -17,7 +14,6 @@ h6 {
 
 h1 {
   font-size: 3rem;
-  color: $color-title;
 }
 
 h2 {
@@ -32,18 +28,16 @@ h3 {
 p {
   font-family: $font-body;
   font-size: 1rem;
+  line-height: 1.7;
   margin-bottom: $spacing-m;
-  color: $color-text-light;
+  color: $color-text-dark;
 }
 
 span {
-  font-family: $font-title;
-  font-size: 1rem;
-  margin-bottom: $spacing-m;
-  color: $color-text-light;
+  font-family: inherit;
+  color: inherit;
 }
 
-/* Accentuation */
 strong {
   color: $color-primary;
   font-weight: 600;

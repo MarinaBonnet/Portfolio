@@ -4,7 +4,7 @@ export class Comet {
     this.ctx = this.canvas.getContext("2d");
 
     this.stars = [];
-    this.colors = ["#f7aef8", "#b388eb", "#8093f1"];
+    this.colors = ["#a78bfa", "#d4af37", "#c4b5fd"];
 
     this.starsCountMobile = 15;
     this.starsCountDesktop = 35;
@@ -50,8 +50,8 @@ export class Comet {
       this.canvas.height * 0.5,
       this.canvas.width * 0.8,
     );
-    g.addColorStop(0, "rgba(247, 174, 248, 0.25)");
-    g.addColorStop(1, "rgba(179,136,235,0)");
+    g.addColorStop(0, "rgba(167, 139, 250, 0.22)");
+    g.addColorStop(1, "rgba(36,27,53,0)");
 
     this.ctx.fillStyle = g;
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -88,6 +88,3 @@ export class Comet {
     requestAnimationFrame(() => this.animate());
   }
 }
-// --- INITIALISATION ---
-
-const comet = new Comet("cometCanvas");

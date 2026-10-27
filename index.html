@@ -1,44 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="shortcut icon" href="">
+    <meta name="description"
+        content="Portfolio de Marina Bonnet, développeuse web junior : projets, intégration responsive et développement frontend et backend.">
+    <meta name="author" content="Marina Bonnet">
+    <meta name="theme-color" content="#171321">
+    <title>Marina Bonnet | Développeuse web junior</title>
+    <link rel="shortcut icon" href="assets/images/favicon.png">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
     <!-- header ,navigation et photo de profile-->
     <header class="header">
+
         <div class="header__content">
-            <h1>Bonnet Marina</h1>
-            <!--slogan accroche -->
-            <p>✨ Construire. Apprendre .Evoluer — “Never stop learning” ✨</p>
-            <nav class="header__nav">
+            <h1>Marina Bonnet</h1>
+
+            <p>Développeuse web junior · Intégration & développement</p>
+
+            <p>Concevoir, développer et faire évoluer des projets web
+                accessibles, responsives et soignés.</p>
+
+            <nav class="header__nav" aria-label="Navigation principale">
                 <ul>
-                    <li><a href="#projects"> Mes Projects</a></li>
-                    <li><a href="#skills">Mes compétences</a></li>
-                    <li><a href="#formations">Mes formations</a></li>
-                    <li><a href="#about">A propos de moi</a></li>
+                    <li><a href="#projects">Mes projets</a></li>
+                    <li><a href="#skills">Compétences</a></li>
+                    <li><a href="#formations">Formations</a></li>
+                    <li><a href="#about">À propos</a></li>
                 </ul>
             </nav>
         </div>
+
         <div class="profile-diamond">
             <img src="assets/images/image_manga.jpg" alt="photo de profile" class="logo">
         </div>
     </header>
     <main>
         <!--section a gauche  du aside en desktop -->
-        <aside class="contact">
+        <aside class="contact" id="contact">
             <!--contacts et liens en colomne verticale a gauche-->
             <button class="contact__toggle">Contacts</button>
             <h2>Contacts</h2>
             <ul class="contact__list">
-                <li><a href="https://github.com/MarinaBonnet" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/MarinaBonnet" target="_blank" rel="noopener noreferer">GitHub</a></li>
                 <li><a href="mailto:marinabpro302@gmail.com">marinabpro302@gmail.com</a></li>
-                <li><a href="https://www.linkedin.com/in/marina-bonnet-486b343aa/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/marina-bonnet-486b343aa/" target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a></li>
                 <li><a href="tel:+33647633329">+33 6 47 63 33 29</a></li>
             </ul>
         </aside>
@@ -46,9 +57,9 @@
             <!--Section projets -->
             <section class="projects" id="projects">
                 <!--carrousel des projets avec titre au survol JS-->
-                <h2>Mes projects</h2>
+                <h2>Mes projets</h2>
                 <div class="carousel">
-                    <button class="carousel__button carousel__button--prev">
+                    <button type="button" class="carousel__button carousel__button--prev" aria-label="Projet précédent">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M12 4L6 10L12 16" stroke="white" stroke-width="1.8" stroke-linecap="round"
                                 stroke-linejoin="round" />
@@ -58,43 +69,59 @@
                         <article class="project-card">
                             <img src="assets/images/logo.png" alt="Projet 1">
                             <h3>Yamzilla — Jeu interactif en Javascript</h3>
-                            <p>Un mini‑jeu développé en JavaScript pour explorer la logique, les événements, la
+                            <p class="project-card__description">Un mini‑jeu développé en JavaScript pour explorer la
+                                logique, les événements, la
                                 manipulation du DOM et les interactions dynamiques. Un projet ludique qui met en avant
                                 la structure du code, la clarté des fonctions et une interface simple et responsive.</p>
-                            <a href="https://marinabonnet.github.io/Yamzilla/" class="btn" target="_blank">Voir le
+                            <button class="project-card__toggle" type="button" aria-expanded="false">
+                                Lire la suite
+                            </button>
+                            <a href="https://marinabonnet.github.io/Yamzilla/" class="btn" target="_blank"
+                                rel="noopener noreferrer">Voir le
                                 projet</a>
                         </article>
                         <article class="project-card">
                             <img src="assets/images/burger.jpg" alt="Projet 2">
                             <h3>Restaurant — Site vitrine responsive</h3>
-                            <p>Intégration complète d’un site vitrine pour un restaurant : mise en page élégante,
+                            <p class="project-card__description">Intégration complète d’un site vitrine pour un
+                                restaurant : mise en page élégante,
                                 typographie soignée, sections structurées, responsive design et respect des bonnes
                                 pratiques HTML/CSS. Un projet orienté UX, lisibilité et cohérence visuelle</p>
-                            <a href="https://marinabonnet.github.io/ProjetRestaurant/" class="btn" target="_blank">Voir
+                            <button class="project-card__toggle" type="button" aria-expanded="false">
+                                Lire la suite
+                            </button>
+                            <a href="https://marinabonnet.github.io/ProjetRestaurant/" class="btn" target="_blank"
+                                rel="noopener noreferrer">Voir
                                 le projet</a>
                         </article>
                         <article class="project-card">
-                            <img src="assets/images/logocodecraft.png" alt="Projet 3">
-                            <h3>Code&Craft — Portfolio freelance</h3>
-                            <p>Création de mon identité visuelle et développement de mon site freelance. Un design
-                                minimaliste, une structure claire, des animations légères et une attention particulière
-                                portée à la typographie et au rythme visuel. Un projet qui reflète mon style et ma
-                                sensibilité d’intégratrice web.</p>
-                            <a href="https://marinabonnet.github.io/ProjetWebAgency/" class="btn" target="_blank">Voir
-                                le projet</a>
+                            <img src="assets/images/logoClaire.png" alt="Logo de Code&Craft" loading="lazy">
+                            <h3>Code&Craft</h3>
+                            <p class="project-card__description">Site vitrine de Code&Craft, mon activité freelance en
+                                développement web. Je conçois des sites modernes, responsive et personnalisés pour aider
+                                les professionnels à développer leur présence en ligne et à valoriser leur activité.</p>
+                            <button class="project-card__toggle" type="button" aria-expanded="false">
+                                Lire la suite
+                            </button>
+                            <a href="https://codecraft-web.fr" class="btn" target="_blank"
+                                rel="noopener noreferrer">Découvrir Code&Craft</a>
                         </article>
                         <article class="project-card">
                             <img src="assets/images/logoManette.png" alt="Projet 4">
                             <h3>Esportify — Plateforme e-sport</h3>
-                            <p>Projet ECF complet (Titre RNCP DWWM): intégration d’une plateforme dédiée à l’e‑sport,
+                            <p class="project-card__description">Projet ECF complet (Titre RNCP DWWM): intégration d’une
+                                plateforme dédiée à l’e‑sport,
                                 avec pages
                                 structurées, composants réutilisables, responsive design et mise en avant des contenus.
                                 Un travail axé sur la cohérence, la hiérarchie visuelle et l’accessibilité.</p>
-                            <a href="https://github.com/MarinaBonnet/-ECF-Esportify/tree/main/plateforme" class="btn"
-                                target="_blank">Voir le projet</a>
+                            <button class="project-card__toggle" type="button" aria-expanded="false">
+                                Lire la suite
+                            </button>
+                            <a href="https://esportify.codecraft-web.fr" class="btn" target="_blank"
+                                rel="noopener noreferrer">Voir le projet</a>
                         </article>
                     </div>
-                    <button class="carousel__button carousel__button--next">
+                    <button type="button" class="carousel__button carousel__button--next" aria-label="Projet suivant">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M8 4L14 10L8 16" stroke="white" stroke-width="1.8" stroke-linecap="round"
                                 stroke-linejoin="round" />
@@ -103,88 +130,47 @@
                 </div>
             </section>
             <!--Séction compétences-->
-            <section id="skills">
+            <section class="skills" id="skills">
 
                 <h2>Mes compétences</h2>
                 <div class="skills-grid">
                     <div class="skills-category">
                         <h3>Frontend</h3>
-
-                        <div class="skill">
-                            <span class="skill-name">HTML</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">CSS/SASS</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">JAVASCRIPT</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%;"></div>
-                            </div>
-                        </div>
+                        <ul>
+                            <li>HTML5</li>
+                            <li>CSS3 | Sass/SCSS</li>
+                            <li>JavaScript</li>
+                            <li>Responsive design</li>
+                            <li>Accessibilité web</li>
+                        </ul>
                     </div>
                     <div class="skills-category">
                         <h3>Backend</h3>
-                        <div class="skill">
-                            <span class="skill-name">PHP</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Symfony</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 65%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Laravel</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 60%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Node.js</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 60%;"></div>
-                            </div>
-                        </div>
+                        <ul>
+                            <li>PHP</li>
+                            <li>Symfony</li>
+                            <li>Laravel</li>
+                            <li>API et gestion des formulaires</li>
+                        </ul>
                     </div>
                     <div class="skills-category">
                         <h3>Base de données</h3>
-                        <div class="skill">
-                            <span class="skill-name">MySQL</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%;"></div>
-                            </div>
-                        </div>
+                        <ul>
+                            <li>MySQL | MariaDB</li>
+                            <li>SQL et requêtes préparées</li>
+                            <li>PostgreSQL</li>
+                            <li>MongoDB</li>
+                        </ul>
                     </div>
                     <div class="skills-category">
-                        <h3>Outils et Worflow</h3>
-                        <div class="skill">
-                            <span class="skill-name">Git / Github</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Figma</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="skill-name">Trello</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%;"></div>
-                            </div>
-                        </div>
+                        <h3>Outils et méthodes</h3>
+                        <ul>
+                            <li>Git | GitHub</li>
+                            <li>Docker | Docker compose</li>
+                            <li>Vite | npm</li>
+                            <li>Github Action - CI/CD</li>
+                            <li>Figma | Trello</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -193,55 +179,76 @@
             <section id="formations">
                 <h2>Mes formations</h2>
                 <div class="education-item">
-                    <h3>Développeur Web et Web Mobile</h3>
-                    <p> En cours — 2024/2026 — Studi </p>
+                    <h3>Développeur Web et Web Mobile DWWM</h3>
+                    <p>Studi</p>
+                    <p>2024-2026</p>
+                    <p>Formation terminée, examen passé en octobre 2026. En attente du courrier officiel</p>
                 </div>
                 <div class="education-item">
-                    <h3>Développeur d'application C# .Net </h3>
-                    <p> En cours — 2024/2026 — Studi </p>
+                    <h3>Bachelor développeur d'application C# .Net </h3>
+                    <p>Studi</p>
+                    <p>En cours</p>
+                    <p>Approfondissement du développement logiciel et des compétences en programmation</p>
                 </div>
                 <div class="education-item">
                     <h3>CAP Cuisine</h3>
                     <p>Diplôme obtenu – 2004</p>
-                    <p>Première carrière avant ma reconversion dans le développement web.</p>
+                    <p> Une expérience professionnelle qui m’a permis de développer
+                        la rigueur, l’organisation et le sens du travail en équipe,
+                        des qualités que je mobilise aujourd’hui dans le développement web.</p>
                 </div>
             </section>
             <!--Section à propos de moi -->
             <section id="about">
                 <h2>A propos de moi...</h2>
                 <div class="about-content">
-                    <p> Passionnée par le développement web, je me reconvertis aujourd’hui après une première carrière
-                        dans la cuisine. J’aime créer des interfaces modernes, propres et fonctionnelles, et je prends
-                        plaisir à résoudre des problèmes techniques avec méthode et créativité. </p>
-                    <p> Actuellement en formation chez Studi, je développe mes compétences en frontend et backend, avec
-                        l’objectif de devenir développeuse web polyvalente. J’accorde une grande importance à la qualité
-                        du code, à la documentation et au responsive design. </p>
-                    <p> Curieuse, motivée et persévérante, j’aime apprendre, expérimenter et construire des projets qui
-                        ont du sens. </p>
+                    <p>
+                        Après près de vingt ans dans le domaine de la cuisine,
+                        j’ai entrepris une reconversion professionnelle dans le
+                        développement web, un domaine qui associe logique,
+                        créativité et résolution de problèmes.
+                    </p>
+                    <p>Je travaille sur des projets web qui mobilisent le
+                        développement frontend et backend, notamment avec
+                        HTML, Sass, JavaScript, PHP et Symfony.</p>
+                    <p>J’accorde une attention particulière à la qualité du code,
+                        à l’organisation des projets, au responsive design et à
+                        l’expérience utilisateur.</p>
+                    <p>Je poursuis actuellement mon parcours en développement
+                        d’applications C#/.NET et je souhaite rejoindre une équipe
+                        pour continuer à progresser, contribuer à des projets
+                        concrets et développer mes compétences.</p>
                 </div>
             </section>
             <!--Section mes centre d'interets-->
             <section id="interets">
                 <h2>Mes centres d'interets</h2>
                 <ul>
-                    <li>Développement web</li>
+                    <li>Développement web et nouvelle technologies</li>
                     <li>Cuisine & créativité culinaire</li>
-                    <li>Sorties et randonnées</li>
+                    <li>Balades et découverte de la nature</li>
                 </ul>
             </section>
             <!--Section de cloture -->
             <section id="closing">
                 <div class="cosmic-comet">
-                    <canvas id="cometCanvas"></canvas>
-                    <p class="closing-txt">Merci d’avoir visité mon portfolio.✨<br>
-                        Je suis disponible pour échanger autour d’un projet ou d’une opportunité professionnelle .</p>
+                    <canvas id="cometCanvas" aria-hidden="true"></canvas>
+                    <h2 class="closing-txt">✨Et si nous donnions vie à vos projets ?</h2>
+                </div>
+                <div class="closing-content">
+                    <p>
+                        Merci d’avoir pris le temps de découvrir mon portfolio.
+                        Je suis disponible pour échanger autour d’une opportunité
+                        professionnelle ou d’un projet web.
+                    </p>
+                    <a href="#contact">Me contacter</a>
                 </div>
             </section>
         </div>
     </main>
     <!--Footer-->
     <footer class="footer">
-        <p>© 2026 – Marina Bonnet</p>
+        <p>&copy; 2026 Marina Bonnet - Tous droits réservés.</p>
     </footer>
 
     <script type="module" src="assets/js/main.js"></script>

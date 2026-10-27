@@ -5,7 +5,10 @@ export function initContactToggle() {
 
   if (!contact || !toggle) return;
 
+  toggle.setAttribute("aria-expanded", "false");
+
   toggle.addEventListener("click", () => {
-    contact.classList.toggle("open");
+    const isOpen = contact.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
   });
 }

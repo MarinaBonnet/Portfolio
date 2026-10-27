@@ -37,17 +37,37 @@ export class Carousel {
    * Met à jour la position de la track en fonction de l'index.
    */
   update() {
+    if (!this.cards.length) return;
+
     const style = globalThis.getComputedStyle(this.track);
-    const gap = Number.parseFloat(style.columnGap || style.gap || 0);
-    const cardWidth = this.cards[0].getBoundingClientRect().width + gap;
-    this.track.style.transform = `translateX(-${this.index * cardWidth}px)`;
+    const gap = Number.parseFloat(style.columnGap) || 0;
+    const cardWidth = this.cards[0].getBoundingClientRect().width;
+    const trackWidth = this.track.clientWidth;
+    const visibleCards = Math.max(
+      1,
+      Math.floor((trackWidth + gap) / (cardWidth + gap)),
+    );
+    const maxIndex = Math.max(0, this.cards.length - visibleCards);
+    this.index = Math.min(this.index, maxIndex);
+    this.track.style.transform = `translateX(-${this.index * cardWidth + gap}px)`;
   }
 
   /**
    * Passe à la carte suivante si possible.
    */
   next() {
-    if (this.index < this.cards.length - 1) {
+    if (!this.cards.length) return;
+    const style = getComputedStyle(this.track);
+    const gap = parseFloat(style.columnGap) || 0;
+    const cardWidth = this.cards[0].getBoundingClientRect().width;
+    const visibleCards = Math.max(
+      1,
+      Math.floor((this.track.clientWidth + gap) / (cardWidth + gap)),
+    );
+
+    const maxIndex = Math.max(0, this.cards.length - visibleCards);
+
+    if (this.index < maxIndex) {
       this.index++;
       this.update();
     }

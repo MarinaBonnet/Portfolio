@@ -20,8 +20,8 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, #f7aef8, #b388eb, #8093f1, #72ddf7);
-    box-shadow: (0 0 6px #b388eb);
+    background: $gradient-primary;
+    box-shadow: 0 0 8px $color-primary;
     border-radius: 3px;
     z-index: 1;
   }

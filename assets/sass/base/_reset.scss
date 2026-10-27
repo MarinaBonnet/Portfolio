@@ -32,7 +32,7 @@ a {
 
 /* 5) Remove default image styles */
 svg {
-  display: inline;
+  display: block;
   max-width: 100%;
 }
 
@@ -56,6 +56,8 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   overflow-x: hidden;
+  background-color: $color-theme-dark;
+  color: $color-text-dark;
 }
 
 /* 9) Headings inherit font-weight ( gères dans le design) */
