@@ -1,35 +1,53 @@
-/* Palette */
+/* ==============================
+   Palette de couleurs
+============================== */
+
+// Thèmes
 $color-theme-light: #f4f0fa;
 $color-text-light: #171321;
 
 $color-theme-dark: #171321;
 $color-text-dark: #f4f0fa;
 
+// Couleurs principales
 $color-primary: #a78bfa;
 $color-secondary: #d4af37;
-$color-title: #d4af37;
+$color-title: $color-secondary;
 $color-subtitle: #c4b5fd;
 
+// Surfaces et bordures
 $color-surface: #241b35;
 $color-border: #44365b;
 
-/* Gradients */
-$gradient-primary: linear-gradient(90deg, #a78bfa, #d4af37);
+/* ==============================
+   Dégradés
+============================== */
 
-$gradient-secondary: linear-gradient(180deg, #a78bfa, #d4af37);
+$gradient-primary: linear-gradient(90deg, $color-primary, $color-secondary);
 
-/* Fonts */
+$gradient-secondary: linear-gradient(180deg, $color-primary, $color-secondary);
+
+/* ==============================
+   Typographie
+============================== */
+
 $font-title: "Lora", serif;
 $font-body: "Playwrite Italia Tradizionale", sans-serif;
 
-/* Espacements */
+/* ==============================
+   Espacements
+============================== */
+
 $spacing-xs: 0.5rem;
 $spacing-s: 1rem;
 $spacing-m: 2rem;
 $spacing-l: 3rem;
 $spacing-xl: 4rem;
 
-/* Bordures arrondies */
+/* ==============================
+   Bordures arrondies
+============================== */
+
 $radius-s: 4px;
 $radius-m: 8px;
 $radius-l: 16px;

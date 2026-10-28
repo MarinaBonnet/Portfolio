@@ -1,5 +1,9 @@
 @use "../abstracts/variables" as *;
 
+/* ==============================
+   Titres
+============================== */
+
 h1,
 h2,
 h3,
@@ -25,6 +29,22 @@ h3 {
   font-size: 1.8rem;
 }
 
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1.125rem;
+}
+
+/* ==============================
+   Texte
+============================== */
+
 p {
   font-family: $font-body;
   font-size: 1rem;
@@ -32,6 +52,10 @@ p {
   margin-bottom: $spacing-m;
   color: $color-text-dark;
 }
+
+/* ==============================
+   Éléments inline
+============================== */
 
 span {
   font-family: inherit;

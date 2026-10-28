@@ -1,38 +1,71 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
-#skills {
+.skills {
+  width: 100%;
+  min-width: 0;
   padding: $spacing-s;
   padding-bottom: 4rem;
+  box-sizing: border-box;
 
   h2 {
     text-align: center;
+    margin-bottom: $spacing-m;
+    font-size: 2.5rem;
   }
-  li {
-    font-family: $font-body;
-    color: $color-text-dark;
-    line-height: 1.7;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: $spacing-m;
+  width: 100%;
+  min-width: 0;
+}
+
+.skills-category {
+  min-width: 0;
+  padding: $spacing-m;
+  box-sizing: border-box;
+  border: 1px solid $color-border;
+  border-left: 4px solid $color-primary;
+  border-radius: $radius-m;
+  background: $color-surface;
+
+  h3 {
+    margin-bottom: $spacing-s;
+    color: $color-secondary;
+    overflow-wrap: break-word;
   }
 
+  ul {
+    margin: 0;
+    padding-left: $spacing-m;
+  }
+
+  li {
+    margin-bottom: $spacing-xs;
+    overflow-wrap: anywhere;
+    font-family: $font-title;
+  }
+}
+
+// Tablettes : deux colonnes
+@media (min-width: 768px) {
   .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $spacing-s;
   }
 
   .skills-category {
-    margin-bottom: $spacing-s;
+    padding: $spacing-s;
   }
+}
 
-  @media (min-width: 600px) {
-    .skills-grid {
-      padding: $spacing-m;
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .skills-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
+// Écrans larges : quatre colonnes seulement si la place le permet
+@media (min-width: 1400px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: $spacing-s;
   }
 }

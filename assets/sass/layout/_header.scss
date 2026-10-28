@@ -1,45 +1,64 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
-// Header
+/* ========================================
+   HEADER
+======================================== */
+
 .header {
   width: 100%;
   box-sizing: border-box;
-  padding: 2rem 0.5rem;
+  padding: $spacing-m $spacing-xs;
   min-height: 280px;
-  text-align: center;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+
   position: relative;
   z-index: 1;
 
+  /* Ligne décorative en dégradé */
   &::after {
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
+
     width: 100%;
     height: 4px;
+
     background: $gradient-primary;
     box-shadow: 0 0 8px $color-primary;
     border-radius: 3px;
+
     z-index: 1;
   }
+
+  /* ======================================
+     CONTENU PRINCIPAL
+  ====================================== */
 
   &__content {
     width: 100%;
     max-width: 600px;
 
     h1 {
-      font-size: $spacing-m;
+      font-size: 3rem;
       margin-bottom: $spacing-s;
     }
 
     p {
       font-size: 1.1rem;
+      line-height: 1.7;
       margin-bottom: 1.2rem;
     }
   }
+
+  /* ======================================
+     BOUTON CV
+  ====================================== */
 
   &__cv {
     display: inline-block;
@@ -53,6 +72,7 @@
     border-radius: $radius-m;
     text-decoration: none;
     font-weight: 600;
+
     transition: transform 0.3s ease;
 
     &:hover {
@@ -65,60 +85,166 @@
     }
   }
 
+  /* ======================================
+     NAVIGATION
+  ====================================== */
+
   &__nav {
     ul {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: $spacing-xs $spacing-s;
+
       list-style: none;
       padding: 0;
       margin: 0;
+
       text-align: center;
     }
 
     a {
+      display: inline-block;
+
       font-family: $font-title;
+      font-size: 1rem;
       color: $color-secondary;
+
       text-decoration: none;
 
       &:hover {
         color: $color-primary;
       }
+
+      &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: 4px;
+      }
     }
   }
 }
 
-@media (min-width: 768px) {
+/* ========================================
+   PORTRAIT EN LOSANGE
+======================================== */
+
+.profile-diamond {
+  width: 180px;
+  height: 180px;
+  flex: 0 0 180px;
+
+  margin: 20px auto;
+
+  overflow: hidden;
+  position: relative;
+
+  transform: rotate(45deg);
+
+  border: 3px solid $color-secondary;
+  border-radius: $radius-s;
+
+  box-shadow: 0 0 15px rgba(167, 139, 250, 0.35);
+
+  .logo {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    object-fit: cover;
+
+    /* Redresse l'image dans le losange */
+    transform: rotate(-45deg) scale(1.42);
+  }
+}
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@include mq(md) {
   .header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
-    padding: 4rem 2rem;
+
+    gap: $spacing-l;
+    padding: $spacing-xl $spacing-m;
+
+    &__content {
+      flex: 1;
+      min-width: 0;
+      max-width: 600px;
+
+      text-align: center;
+      order: 2;
+
+      h1 {
+        font-size: 3.25rem;
+      }
+
+      p {
+        font-size: 1.125rem;
+      }
+    }
+
+    &__nav ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      justify-content: center;
+      align-items: center;
+
+      gap: $spacing-s;
+    }
   }
 
   .profile-diamond {
-    position: static;
-    transform: none;
     width: 220px;
     height: 220px;
-    flex-shrink: 0;
+    flex-basis: 220px;
+
+    margin: 20px;
     order: 1;
   }
+}
 
-  .header__content {
-    flex: 1;
-    min-width: 0;
-    text-align: center;
-    order: 2;
+/* ========================================
+   DESKTOP
+======================================== */
+
+@include mq(desktop) {
+  .header {
+    gap: $spacing-xl;
+    padding: 5rem $spacing-l;
+
+    &__content {
+      max-width: 800px;
+
+      h1 {
+        font-size: 3.5rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    &__nav ul {
+      gap: $spacing-m;
+    }
+
+    &__nav a {
+      font-size: 1.125rem;
+    }
   }
 
-  .header__nav ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
+  .profile-diamond {
+    width: 280px;
+    height: 280px;
+    flex-basis: 280px;
   }
 }

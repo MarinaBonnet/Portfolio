@@ -2,19 +2,30 @@
 @use "../abstracts/mixins" as *;
 @use "sass:color";
 
+/* ========================================
+   CONTENU ET SECTION PROJETS
+======================================== */
+
 .content {
   position: relative;
+  min-width: 0;
 }
+
 .projects {
   margin-top: 80px;
   text-align: center;
 }
+
+/* ========================================
+   CARROUSEL
+======================================== */
 
 .carousel {
   position: relative;
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
+  min-width: 0;
 }
 
 .carousel__track {
@@ -23,37 +34,63 @@
   transition: transform 0.4s ease;
 }
 
+/* ========================================
+   CARTE PROJET
+======================================== */
+
 .project-card {
-  min-width: 100%;
+  flex: 0 0 100%;
+  min-width: 0;
+  box-sizing: border-box;
 
   img {
+    display: block;
     width: 100%;
-    height: 300px;
+    height: 400px;
     object-fit: cover;
     border-radius: $radius-m;
     box-shadow: 0 4px 10px rgba(179, 136, 235, 0.4);
   }
+
+  h3,
+  p {
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  /* Description repliée */
   .project-card__description {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* Description développée */
   .project-card__description.is-expanded {
     display: block;
     overflow: visible;
   }
+
+  /* Bouton lire la suite */
   .project-card__toggle {
+    display: block;
+    margin: 0.75rem auto 1rem;
+    padding: 0;
     background: transparent;
     border: none;
     color: $color-secondary;
-    cursor: pointer;
     font: inherit;
     text-decoration: underline;
-    display: block;
-    margin: 0.75rem auto 1rem;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 4px;
+    }
   }
 
+  /* Boutons des projets */
   .btn {
     display: inline-block;
     margin: 0.5rem 0.2rem;
@@ -62,105 +99,188 @@
     color: $color-text-light;
     border-radius: $radius-s;
     text-decoration: none;
-    transition: 0.3s;
+    transition: background 0.3s ease;
 
     &:hover {
       background: color.adjust($color-secondary, $lightness: -10%);
     }
+
+    &:focus-visible {
+      outline: 2px solid $color-secondary;
+      outline-offset: 3px;
+    }
   }
 }
 
-.carousel__button {
-  position: absolute;
+/* ========================================
+   FLÈCHES — MASQUÉES SUR MOBILE
+======================================== */
+
+.carousel__controls {
   display: none;
-  background: rgba(179, 136, 235, 0.3);
-  backdrop-filter: blur(2px);
-  border: none;
-  padding: $spacing-s;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  top: 50%;
-  cursor: pointer;
-  z-index: 10;
-  transform: translateY(-50%);
-  transition: background 0.3s ease;
-  pointer-events: auto;
+}
 
-  &:hover {
-    background: rgba(179, 136, 235, 0.65);
+/* ========================================
+   BARRE DE PROGRESSION — MOBILE
+======================================== */
+
+.carousel__progress {
+  display: block;
+  width: 60%;
+  height: 4px;
+  margin: 1rem auto 0;
+  appearance: none;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background: $color-border;
+
+  &::-webkit-progress-bar {
+    background: $color-border;
+    border-radius: 10px;
   }
-  svg {
-    width: 18px;
-    height: 18px;
-    stroke: white; // flèche visible sur TOUTES les images }
+
+  &::-webkit-progress-value {
+    background: $gradient-primary;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+  }
+
+  &::-moz-progress-bar {
+    background: $gradient-primary;
+    border-radius: 10px;
+    transition: width 0.4s ease;
   }
 }
 
-@media (min-width: 768px) {
+/* ========================================
+   NAVIGATION — TABLETTE ET DESKTOP
+======================================== */
+
+@include landscape-tablet {
   .content {
     flex: 1;
     min-width: 0;
   }
+
   .projects {
     margin-top: 0;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
   }
+
   .carousel {
-    position: relative;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem 3.5rem;
+    padding: 1rem 0;
+    box-sizing: border-box;
     overflow: hidden;
-    box-sizing: border-box;
   }
 
-  .carousel__track {
+  /* Flèches au-dessus des images */
+  .carousel__controls {
     display: flex;
-    gap: 20px;
-    transition: transform 0.4s ease;
-  }
-
-  .project-card {
-    flex: 0 0 calc((100% - 40px) / 3);
-    min-width: 0;
-    box-sizing: border-box;
-  }
-
-  .project-card h3,
-  .project-card p {
-    margin-top: 1rem;
-    overflow-wrap: break-word;
-    word-break: normal;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-s;
+    width: 100%;
+    margin-bottom: $spacing-s;
   }
 
   .carousel__button {
-    position: absolute;
-    display: flex;
+    position: static;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    flex: 0 0 40px;
     width: 40px;
     height: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
+    padding: 0;
+    background: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-m;
+    cursor: pointer;
+    transform: none;
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease;
+
+    &:hover {
+      background: $color-primary;
+      border-color: $color-primary;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-secondary;
+      outline-offset: 3px;
+    }
+
     svg {
       width: 20px;
       height: 20px;
+      stroke: white;
     }
   }
-  img {
-    display: block;
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
+
+  .carousel__track {
+    gap: 20px;
   }
 
-  .carousel__button--prev {
-    left: 0.5px;
+  .project-card {
+    flex: 0 0 calc((100% - 20px) / 2);
+    min-width: 0;
+
+    img {
+      height: 300px;
+      max-height: 300px;
+      object-position: center;
+    }
+
+    h3,
+    p {
+      margin-top: 1rem;
+    }
   }
-  .carousel__button--next {
-    right: 0.5px;
+
+  .carousel__progress {
+    display: none;
+  }
+}
+
+/* ========================================
+   GRAND ÉCRAN
+======================================== */
+
+@include large-screen {
+  .carousel {
+    max-width: 1200px;
+  }
+
+  .carousel__track {
+    gap: 20px;
+  }
+
+  .project-card {
+    flex-basis: calc((100% - 40px) / 3);
+  }
+}
+
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__track,
+  .carousel__button,
+  .carousel__progress::-webkit-progress-value,
+  .carousel__progress::-moz-progress-bar {
+    transition: none;
   }
 }

@@ -1,75 +1,91 @@
-// abstracts/_mixins.scss
+@use "sass:map";
 
-// Breakpoints
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
-
-/* Mixin responsive version 1
-header {
-  padding: 3rem;
-
-  @include respond(md) {
-    padding: 1.5rem;
-  }
-}
-*/
-
-@mixin respond($breakpoint) {
-  @if $breakpoint == sm {
-    @media (max-width: #{$breakpoint-sm}) {
-      @content;
-    }
-  } @else if $breakpoint == md {
-    @media (max-width: #{$breakpoint-md}) {
-      @content;
-    }
-  } @else if $breakpoint == lg {
-    @media (max-width: #{$breakpoint-lg}) {
-      @content;
-    }
-  } @else if $breakpoint == xl {
-    @media (max-width: #{$breakpoint-xl}) {
-      @content;
-    }
-  }
-}
-
-/* version 2 mixin mobil first
-h1 {
-  font-size: 2rem;
-
-  @include mq(md) {
-    font-size: 3rem;
-  }
-}
-*/
+/* ==============================
+   Breakpoints
+============================== */
 
 $breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
+  desktop: 1024px,
   xl: 1200px,
 );
 
+/* ==============================
+   Media queries
+============================== */
+
+// Jusqu'à une largeur maximale
+@mixin respond($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint inconnu : #{$breakpoint}";
+  }
+}
+
+// À partir d'une largeur minimale
 @mixin mq($size) {
-  @media (min-width: map-get($breakpoints, $size)) {
-    @content;
+  @if map.has-key($breakpoints, $size) {
+    @media (min-width: map.get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint inconnu : #{$size}";
   }
 }
 
-/*Version 3 ultra simple
-nav ul {
-  display: flex;
-
-  @include max(768px) {
-    flex-direction: column;
-  }
-}
-*/
+// Largeur maximale personnalisée
 @mixin max($width) {
   @media (max-width: $width) {
     @content;
+  }
+}
+
+/* ==============================
+   Tablette paysage
+============================== */
+
+@mixin landscape-tablet {
+  @media (min-width: map.get($breakpoints, md)) and (orientation: landscape) {
+    @content;
+  }
+}
+
+/* ==============================
+   Grand écran
+============================== */
+
+@mixin large-screen {
+  @include mq(desktop) {
+    @content;
+  }
+}
+
+/* ==============================
+   Typographie desktop
+============================== */
+
+$font-sizes-desktop: (
+  h1: 4rem,
+  h2: 3rem,
+  h3: 2.25rem,
+  h4: 1.875rem,
+  h5: 1.5rem,
+  h6: 1.25rem,
+  p: 1.125rem,
+  a: 1.125rem,
+);
+
+@mixin typography-desktop {
+  @include mq(desktop) {
+    @each $element, $size in $font-sizes-desktop {
+      #{$element} {
+        font-size: $size;
+      }
+    }
   }
 }

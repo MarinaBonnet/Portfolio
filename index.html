@@ -32,15 +32,15 @@
             <nav class="header__nav" aria-label="Navigation principale">
                 <ul>
                     <li><a href="#projects">Mes projets</a></li>
-                    <li><a href="#skills">Compétences</a></li>
-                    <li><a href="#formations">Formations</a></li>
-                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#skills">Mes Compétences</a></li>
+                    <li><a href="#formations">Mes Formations</a></li>
+                    <li><a href="#about">À propos de moi...</a></li>
                 </ul>
             </nav>
         </div>
 
         <div class="profile-diamond">
-            <img src="assets/images/image_manga.jpg" alt="photo de profile" class="logo">
+            <img src="assets/images/image_manga.jpg" alt="Illustration de profil manga de Marina Bonnet" class="logo">
         </div>
     </header>
     <main>
@@ -50,7 +50,7 @@
             <button class="contact__toggle">Contacts</button>
             <h2>Contacts</h2>
             <ul class="contact__list">
-                <li><a href="https://github.com/MarinaBonnet" target="_blank" rel="noopener noreferer">GitHub</a></li>
+                <li><a href="https://github.com/MarinaBonnet" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                 <li><a href="mailto:marinabpro302@gmail.com">marinabpro302@gmail.com</a></li>
                 <li><a href="https://www.linkedin.com/in/marina-bonnet-486b343aa/" target="_blank"
                         rel="noopener noreferrer">LinkedIn</a></li>
@@ -64,13 +64,23 @@
                 <h2>Mes projets</h2>
 
                 <div class="carousel">
+                    <div class="carousel__controls">
 
-                    <button type="button" class="carousel__button carousel__button--prev" aria-label="Projet précédent">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M12 4L6 10L12 16" stroke="white" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
+                        <button type="button" class="carousel__button carousel__button--prev"
+                            aria-label="Projet précédent">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M12 4L6 10L12 16" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button type="button" class="carousel__button carousel__button--next"
+                            aria-label="Projet suivant">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M8 4L14 10L8 16" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
 
                     <div class="carousel__track">
 
@@ -198,13 +208,11 @@
                         </article>
 
                     </div>
+                    <progress class="carousel__progress" value="1" max="4" aria-label="Progression des projets">
+                        1 sur 4
+                    </progress>
 
-                    <button type="button" class="carousel__button carousel__button--next" aria-label="Projet suivant">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M8 4L14 10L8 16" stroke="white" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
+
 
                 </div>
             </section>
@@ -246,9 +254,9 @@
                         <h3>Outils et méthodes</h3>
                         <ul>
                             <li>Git | GitHub</li>
-                            <li>Docker | Docker compose</li>
+                            <li>Docker | Docker Compose</li>
                             <li>Vite | npm</li>
-                            <li>Github Action - CI/CD</li>
+                            <li>Github Actions - CI/CD</li>
                             <li>Figma | Trello</li>
                         </ul>
                     </div>
@@ -280,7 +288,7 @@
             </section>
             <!--Section à propos de moi -->
             <section id="about">
-                <h2>A propos de moi...</h2>
+                <h2>À propos de moi...</h2>
                 <div class="about-content">
                     <p>
                         Après près de vingt ans dans le domaine de la cuisine,
@@ -302,9 +310,9 @@
             </section>
             <!--Section mes centre d'interets-->
             <section id="interets">
-                <h2>Mes centres d'interets</h2>
+                <h2>Mes centres d'intérêts</h2>
                 <ul>
-                    <li>Développement web et nouvelle technologies</li>
+                    <li>Développement web et nouvelles technologies</li>
                     <li>Cuisine & créativité culinaire</li>
                     <li>Balades et découverte de la nature</li>
                 </ul>

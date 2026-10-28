@@ -1,31 +1,22 @@
 export class Carousel {
   /**
-   * Gère un carousel : navigation, swipe mobile, resize, etc.
-   * @class
+   * Crée une instance du carousel.
+   * @param {string} selector
    */
-  /**
-   * Crée une instance de Carousel.
-   * @param {string} selector - Le sélecteur CSS du carousel à initialiser.
-   */
-
   constructor(selector) {
-    /** @type {HTMLElement} Élément racine du carousel */
     this.root = document.querySelector(selector);
 
-    /** @type {HTMLElement} Track contenant les cartes */
+    if (!this.root) return;
+
     this.track = this.root.querySelector(".carousel__track");
-
-    /** @type {HTMLElement[]} Liste des cartes du carousel */
     this.cards = [...this.root.querySelectorAll(".project-card")];
-
-    /** @type {HTMLElement|null} Bouton précédent */
     this.prevBtn = this.root.querySelector(".carousel__button--prev");
-
-    /** @type {HTMLElement|null} Bouton suivant */
     this.nextBtn = this.root.querySelector(".carousel__button--next");
+    this.progress = this.root.querySelector(".carousel__progress");
 
-    /** @type {number} Index de la carte active */
     this.index = 0;
+
+    if (!this.track || !this.cards.length) return;
 
     this.bindEvents();
     this.update();
@@ -34,38 +25,68 @@ export class Carousel {
   }
 
   /**
-   * Met à jour la position de la track en fonction de l'index.
+   * Calcule les dimensions et le nombre de cartes visibles.
    */
-  update() {
-    if (!this.cards.length) return;
+  getMetrics() {
+    const trackStyle = getComputedStyle(this.track);
+    const rootStyle = getComputedStyle(this.root);
 
-    const style = globalThis.getComputedStyle(this.track);
-    const gap = Number.parseFloat(style.columnGap) || 0;
+    const gap =
+      Number.parseFloat(trackStyle.columnGap) ||
+      Number.parseFloat(trackStyle.gap) ||
+      0;
+
+    const paddingLeft = Number.parseFloat(rootStyle.paddingLeft) || 0;
+    const paddingRight = Number.parseFloat(rootStyle.paddingRight) || 0;
+
+    const containerWidth = this.root.clientWidth - paddingLeft - paddingRight;
+
     const cardWidth = this.cards[0].getBoundingClientRect().width;
-    const trackWidth = this.track.clientWidth;
-    const visibleCards = Math.max(
-      1,
-      Math.floor((trackWidth + gap) / (cardWidth + gap)),
+
+    const visibleCards = Math.min(
+      this.cards.length,
+      Math.max(1, Math.floor((containerWidth + gap) / (cardWidth + gap))),
     );
+
     const maxIndex = Math.max(0, this.cards.length - visibleCards);
-    this.index = Math.min(this.index, maxIndex);
-    this.track.style.transform = `translateX(-${this.index * cardWidth + gap}px)`;
+
+    return { gap, cardWidth, maxIndex };
   }
 
   /**
-   * Passe à la carte suivante si possible.
+   * Met à jour la position du carousel.
+   */
+  update() {
+    if (!this.track || !this.cards.length) return;
+
+    const { gap, cardWidth, maxIndex } = this.getMetrics();
+
+    this.index = Math.max(0, Math.min(this.index, maxIndex));
+
+    const offset = this.index * (cardWidth + gap);
+
+    this.track.style.transform = `translateX(-${offset}px)`;
+
+    if (this.progress) {
+      this.progress.value = this.index + 1;
+    }
+
+    if (this.prevBtn) {
+      this.prevBtn.disabled = this.index === 0;
+    }
+
+    if (this.nextBtn) {
+      this.nextBtn.disabled = this.index >= maxIndex;
+    }
+  }
+
+  /**
+   * Passe aux projets suivants.
    */
   next() {
     if (!this.cards.length) return;
-    const style = getComputedStyle(this.track);
-    const gap = parseFloat(style.columnGap) || 0;
-    const cardWidth = this.cards[0].getBoundingClientRect().width;
-    const visibleCards = Math.max(
-      1,
-      Math.floor((this.track.clientWidth + gap) / (cardWidth + gap)),
-    );
 
-    const maxIndex = Math.max(0, this.cards.length - visibleCards);
+    const { maxIndex } = this.getMetrics();
 
     if (this.index < maxIndex) {
       this.index++;
@@ -74,7 +95,7 @@ export class Carousel {
   }
 
   /**
-   * Revient à la carte précédente si possible.
+   * Revient aux projets précédents.
    */
   prev() {
     if (this.index > 0) {
@@ -84,7 +105,7 @@ export class Carousel {
   }
 
   /**
-   * Attache les événements : clics flèches + swipe mobile.
+   * Gère les clics et le swipe mobile.
    */
   bindEvents() {
     this.nextBtn?.addEventListener("click", () => this.next());
@@ -92,18 +113,27 @@ export class Carousel {
 
     let startX = 0;
 
-    this.track.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
+    this.track.addEventListener(
+      "touchstart",
+      (event) => {
+        startX = event.touches[0].clientX;
+      },
+      { passive: true },
+    );
 
-    this.track.addEventListener("touchend", (e) => {
-      const endX = e.changedTouches[0].clientX;
+    this.track.addEventListener(
+      "touchend",
+      (event) => {
+        const endX = event.changedTouches[0].clientX;
+        const distance = endX - startX;
 
-      if (endX < startX - 50) {
-        this.next();
-      } else if (endX > startX + 50) {
-        this.prev();
-      }
-    });
+        if (distance < -50) {
+          this.next();
+        } else if (distance > 50) {
+          this.prev();
+        }
+      },
+      { passive: true },
+    );
   }
 }
