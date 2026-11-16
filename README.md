@@ -5,6 +5,12 @@ Développeuse web junior · Intégration web & développement
 Bienvenue sur le dépôt de mon portfolio professionnel. Ce site présente mon parcours, mes compétences techniques et les projets réalisés au cours de ma formation et de mes projets personnels.
 
 🔗 **Portfolio en ligne :** [marinabonnet.github.io/Portfolio](https://marinabonnet.github.io/Portfolio/)
+![Aperçu de mon portfolio](assets/images/portfolio-preview.png)
+<p align="center">
+  <img src="./assets/images/portfolio-preview.png"
+       alt="Aperçu de mon portfolio"
+       width="850">
+</p>
 
 ## À propos
 
