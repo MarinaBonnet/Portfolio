@@ -5,7 +5,7 @@ Développeuse web junior · Intégration web & développement
 Bienvenue sur le dépôt de mon portfolio professionnel. Ce site présente mon parcours, mes compétences techniques et les projets réalisés au cours de ma formation et de mes projets personnels.
 
 🔗 **Portfolio en ligne :** [marinabonnet.github.io/Portfolio](https://marinabonnet.github.io/Portfolio/)
-![Aperçu de mon portfolio](assets/images/portfolio-preview.png)
+
 <p align="center">
   <img src="./assets/images/portfolio-preview.png"
        alt="Aperçu de mon portfolio"
@@ -16,9 +16,13 @@ Bienvenue sur le dépôt de mon portfolio professionnel. Ce site présente mon p
 
 Après près de 20 ans dans le domaine de la cuisine, j’ai entrepris une reconversion professionnelle dans le développement web.
 
-Cette transition m’a permis de développer de nouvelles compétences techniques tout en conservant les qualités acquises dans mon précédent métier : rigueur, organisation, autonomie et travail en équipe.
+Titulaire du Titre professionnel Développeur Web et Web Mobile (DWWM), obtenu en novembre 2026, j'ai acquis des compétences en développement front-end et back-end, en conception d'applications web et en gestion de bases de données.
 
-Mon objectif est de rejoindre une équipe en tant que **développeuse web junior**, afin de contribuer à des projets concrets et de continuer à progresser techniquement.
+Je poursuis actuellement un Bachelor Développeur d'application C# / .NET afin d'approfondir mes connaissances en programmation et en développement logiciel.
+
+Mon parcours m'a également permis de conserver et de développer des qualités essentielles : rigueur, organisation, autonomie, adaptabilité et travail en équipe.
+
+Mon objectif est aujourd'hui de rejoindre une équipe en tant que développeuse web junior, pour contribuer à des projets concrets et continuer à progresser techniquement.
 
 ## Projets présentés
 
